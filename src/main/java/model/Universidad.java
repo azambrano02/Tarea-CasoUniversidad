@@ -3,8 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Trabajador;
-import model.Facultad;
 
 public class Universidad {
 	private String nombre;

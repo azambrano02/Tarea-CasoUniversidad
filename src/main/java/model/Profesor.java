@@ -24,7 +24,7 @@ public class Profesor extends Trabajador {
 		this.departamento = departamento;
 	}
 
-	public String getTipo() {
-		return "Profesor";
+	public TipoTrabajador getTipo() {
+		return TipoTrabajador.PROFESOR;
 	}
 }
