@@ -48,7 +48,7 @@ public abstract class Trabajador {
 		this.horario = horario;
 	}
 
-	public abstract String getTipo();
+	public abstract TipoTrabajador getTipo();
 
 	public Trabajador(String tituloProfesional, String nombre, String direccion, String estadoCivil, String rut, Date horario) {
 		this.tituloProfesional = tituloProfesional;

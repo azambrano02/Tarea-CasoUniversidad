@@ -2,6 +2,7 @@ package model;
 
 import java.util.Date;
 
+
 public class Administrativo extends Trabajador {
 	private Departamento departamento;
 
@@ -17,7 +18,7 @@ public class Administrativo extends Trabajador {
 		this.departamento = departamento;
 	}
 
-	public String getTipo() {
-		return "Administrativo";
+	public TipoTrabajador getTipo() {
+		return TipoTrabajador.ADMINISTRATIVO;
 	}
 }
