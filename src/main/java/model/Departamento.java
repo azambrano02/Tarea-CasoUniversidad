@@ -49,4 +49,31 @@ public class Departamento {
 		this.administrativos = new ArrayList<>();
 		this.carrerasUniversitarias = new ArrayList<>();
 	}
+	public boolean profesorExiste(Profesor profesor) {
+		for (Profesor p : this.profesores) {
+			if (profesor.getRut().equals(p.getRut())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void agregarProfesor(Profesor profesor) {
+		if (!profesorExiste(profesor)) {
+			this.profesores.add(profesor);
+		}
+	}
+
+	public boolean carreraExiste(CarreraUniversitaria carreraUniversitaria) {
+		for (CarreraUniversitaria c : this.carrerasUniversitarias) {
+			if (carreraUniversitaria.getNombre().equals(c.getNombre())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void agregarCarrera(CarreraUniversitaria carreraUniversitaria) {
+		if (!carreraExiste(carreraUniversitaria)) {
+			this.carrerasUniversitarias.add(carreraUniversitaria);
+		}
+	}
 }

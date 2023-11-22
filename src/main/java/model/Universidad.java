@@ -52,4 +52,35 @@ public class Universidad {
 		this.facultades = new ArrayList<>();
 		this.tipoUniversidad = tipoUniversidad;
 	}
+
+	public List<Trabajador> obtenerTrabajadores(Universidad universidad) {
+		List<Trabajador> trabajadoresUniversidad = new ArrayList<>();
+		for (Facultad facultad : universidad.getFacultades()) {
+			for (Departamento departamento : facultad.getDepartamentos()) {
+				trabajadores.addAll(departamento.getProfesores());
+				trabajadores.addAll(departamento.getAdministrativos());
+			}
+		}
+		return trabajadoresUniversidad;
+	}
+	public List<Administrativo> administrativos(Universidad universidad) {
+		List<Trabajador> trabajadores = obtenerTrabajadores(universidad);
+		List<Administrativo> administrativos = new ArrayList<>();
+		for (Trabajador trabajador : trabajadores) {
+			if (trabajador.getTipo().equals(TipoTrabajador.ADMINISTRATIVO)) {
+				administrativos.add((Administrativo) trabajador);
+			}
+		}
+		return administrativos;
+	}
+	public List<Profesor> profesores(Universidad universidad) {
+		List<Trabajador> trabajadores = obtenerTrabajadores(universidad);
+		List<Profesor> profesores = new ArrayList<>();
+		for (Trabajador trabajador : trabajadores) {
+			if (trabajador.getTipo().equals(TipoTrabajador.PROFESOR)) {
+				profesores.add((Profesor) trabajador);
+			}
+		}
+		return profesores;
+	}
 }

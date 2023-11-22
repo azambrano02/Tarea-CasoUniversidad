@@ -30,7 +30,7 @@ public class Facultad {
 	public void setLongitud(double longitud) {
 		this.longitud = longitud;
 	}
-	public Universidad getUniversidad(){
+	public Universidad getUniversidad() {
 		return this.universidad;
 	}
 	public void setUniversidad(Universidad universidad) {
@@ -50,4 +50,32 @@ public class Facultad {
 		this.universidad = universidad;
 		this.departamentos = new ArrayList<>();
 	}
+
+	public List<Profesor> buscarProfesoresNombre(Departamento departamento, String nombre) {
+		List<Profesor> profesoresNombre = new ArrayList<>();
+		for (Profesor profesor : departamento.getProfesores()) {
+			if (profesor.getNombre().equals(nombre)) {
+				profesoresNombre.add(profesor);
+			}
+		}
+		return profesoresNombre;
+	}
+	public List<CarreraUniversitaria> obtenerCarreras(Facultad facultad) {
+		List<CarreraUniversitaria> carreras = new ArrayList<>();
+		for (Departamento departamento : facultad.getDepartamentos()) {
+			carreras.addAll(departamento.getCarrerasUniversitarias());
+		}
+		return carreras;
+	}
+	public List<Profesor> profesoresContratados(Departamento departamento, TipoContrato tipoContrato) {
+		List<Profesor> profesoresContratados = new ArrayList<>();
+		for (Profesor profesor : departamento.getProfesores()) {
+			if (profesor.getTipoContrato() == tipoContrato) {
+				profesoresContratados.add(profesor);
+			}
+		}
+		return profesoresContratados;
+	}
+
+
 }
